@@ -28,7 +28,7 @@
     </div>    
     <div class="flex flex-row justify-center mx-[200px] pt-44">
         <div class="poppins-bold flex flex-col justify-center text-center items-center text-3xl bg-clip-text text-transparent bg-gradient-to-b from-[#462814] via-[#956037] to-[#462814] leading-tight px-12 py-6">
-            <img src="\assets\images\calon\kandidat-1.png" alt="" width="354" height="371">
+            <img src="{{ $kandidatTertinggi->image }}" alt="" width="354" height="371">
             <p class="pt-1">{{ $kandidatTertinggi->suara }} suara</p>
             <p class="pt-1">{{ $kandidatTertinggi->name }}</p>
             <p class="w-3/4 pt-10 text-[#462814]">Selamat dan sukses kepada 
