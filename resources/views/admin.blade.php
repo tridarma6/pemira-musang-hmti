@@ -21,9 +21,12 @@
 </head>
 <body>
     <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
-        <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
-            <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+        <table class="w-full text-sm text-left rtl:text-right">
+            <thead class="text-lg text-white uppercase bg-gradient-to-b from-[#462814] via-[#956037] to-[#462814]">
                 <tr>
+                    <th scope="col" class="px-6 py-3">
+                        No
+                    </th>
                     <th scope="col" class="px-6 py-3">
                         Nama
                     </th>
@@ -40,18 +43,21 @@
             </thead>
             <tbody>
                 @foreach ($kandidats as $kandidat)
-                <tr id="kandidat-{{ $kandidat->id }}" class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                <tr id="kandidat-{{ $kandidat->id }}" class="bg-white border-b border-[#462814] text-[#462814] text-lg font-bold">
+                    <th scope="row" class="px-6 py-4">
+                        {{ $kandidat->id }}
+                    </th>
+                    <th scope="row" class="px-6 py-4">
                         {{ $kandidat->name }}
                     </th>
                     <td class="px-6 py-4">
-                        <span class="suara">{{ $kandidat->suara }}</span>  <!-- Tambahkan span untuk menampilkan jumlah suara -->
+                        <span class="suara">{{ $kandidat->suara }}</span>
                     </td>
                     <td class="px-6 py-4">
-                        <button class="tambah-suara border border-[#462814] w-10 rounded-full" data-id="{{ $kandidat->id }}">+</button>
+                        <button class="tambah-suara border-2 border-[#462814] w-10 h-10 font-bold rounded-full text-xl" data-id="{{ $kandidat->id }}">+</button>
                     </td>
                     <td class="px-6 py-4">
-                        <button class="kurang-suara border border-[#462814] w-10 rounded-full" data-id="{{ $kandidat->id }}">-</button>
+                        <button class="kurang-suara border-2 border-[#462814] w-10 h-10 font-bold rounded-full text-xl" data-id="{{ $kandidat->id }}">-</button>
                     </td>
                 </tr>                
                 @endforeach

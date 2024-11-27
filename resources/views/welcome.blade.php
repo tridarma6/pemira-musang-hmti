@@ -33,9 +33,9 @@
             <div id="kandidat-{{ $kandidat->id }}" class="poppins-bold flex flex-col text-center items-center text-3xl bg-clip-text text-transparent bg-gradient-to-b from-[#462814] via-[#956037] to-[#462814] px-12 pt-6">
                 <img src="{{ $kandidat->image }}" alt="" width="196" height="206">
                 <div class="flex flex-row gap-6">
-                    <button class="kurang-suara border border-[#462814] w-10 rounded-full" data-id="{{ $kandidat->id }}">-</button>
+                    <button class="kurang-suara border hidden border-[#462814] w-10 rounded-full" data-id="{{ $kandidat->id }}">-</button>
                     <p><span class="suara">{{ $kandidat->suara }}</span> Suara</p>
-                    <button class="tambah-suara border border-[#462814] w-10 rounded-full" data-id="{{ $kandidat->id }}">+</button>
+                    <button class="tambah-suara border hidden border-[#462814] w-10 rounded-full" data-id="{{ $kandidat->id }}">+</button>
                     
                 </div>
             </div>
@@ -122,7 +122,7 @@
                     }
                 });
             }
-            setInterval(updateSuara, 3000);
+            setInterval(updateSuara, 1000);
         });
 
         $(document).on('click', '.tambah-suara', function() {
