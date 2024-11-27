@@ -15,3 +15,7 @@ Route::get('/result', function () {
 Route::get('/result', [KandidatController::class, 'hasil'])->name('kandidat.hasil');
 Route::post('/kandidat/{id}/tambah-suara', [KandidatController::class, 'tambahSuara'])->name('kandidat.tambah-suara');
 Route::post('/kandidat/{id}/kurang-suara', [KandidatController::class, 'kurangSuara'])->name('kandidat.kurang-suara');
+
+Route::get('/admin', [KandidatController::class, 'edit'])->name('admin.edit');
+
+Route::get('/get-suara', [KandidatController::class, 'getSuara']);

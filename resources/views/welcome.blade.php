@@ -103,6 +103,28 @@
     </script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
+        $(document).ready(function() {
+            // Fungsi untuk mengambil data suara dari server
+            function updateSuara() {
+                $.ajax({
+                    url: '/get-suara',  // Endpoint untuk mendapatkan suara
+                    method: 'GET',  // Menggunakan metode GET untuk mengambil data
+                    success: function(response) {
+                        // Loop untuk setiap kandidat yang ada pada response
+                        response.kandidats.forEach(function(kandidat) {
+                            // Update elemen suara dengan data terbaru
+                            const suaraSpan = $(`#kandidat-${kandidat.id} .suara`);
+                            suaraSpan.text(kandidat.suara);  // Update suara di halaman
+                        });
+                    },
+                    error: function() {
+                        console.error('Gagal mengambil data suara');
+                    }
+                });
+            }
+            setInterval(updateSuara, 3000);
+        });
+
         $(document).on('click', '.tambah-suara', function() {
             const kandidatId = $(this).data('id');
             const suaraSpan = $(`#kandidat-${kandidatId} .suara`);

@@ -13,6 +13,12 @@ class KandidatController extends Controller
 
         return view('welcome')->with('kandidats', $kandidats);
     }
+    public function edit()
+    {
+        $kandidats = Kandidat::all();
+
+        return view('admin')->with('kandidats', $kandidats);
+    }
 
     public function hasil()
     {
@@ -21,32 +27,48 @@ class KandidatController extends Controller
         return view('result', compact('kandidatTertinggi'));
     }
 
-    public function tambahSuara(Request $request, $id)
+    // Method untuk tambah suara
+    public function tambahSuara($id)
     {
-        $kandidat = Kandidat::findOrFail($id);
-    
-        // Tambahkan suara
-        $kandidat->increment('suara');
-    
-        // Kirimkan respons JSON
+        $kandidat = Kandidat::find($id);
+        if ($kandidat) {
+            $kandidat->increment('suara');
+            $kandidat->save();
+            
+            return response()->json([
+                'success' => true,
+                'kandidat' => $kandidat
+            ]);
+        }
+        return response()->json(['success' => false]);
+    }
+
+    // Method untuk kurang suara
+    public function kurangSuara($id)
+    {
+        $kandidat = Kandidat::find($id);
+        if ($kandidat) {
+            $kandidat->decrement('suara');
+            $kandidat->save();
+            
+            return response()->json([
+                'success' => true,
+                'kandidat' => $kandidat
+            ]);
+        }
+        return response()->json(['success' => false]);
+    }
+
+
+    public function getSuara()
+    {
+        // Ambil semua kandidat dan data suaranya
+        $kandidats = Kandidat::all();
+
+        // Kembalikan response JSON berisi data kandidat dan suara
         return response()->json([
-            'success' => true,
-            'message' => 'Suara berhasil ditambahkan!',
-            'kandidat' => $kandidat
+            'kandidats' => $kandidats
         ]);
     }
-    public function kurangSuara(Request $request, $id)
-    {
-        $kandidat = Kandidat::findOrFail($id);
-    
-        // Tambahkan suara
-        $kandidat->decrement('suara');
-    
-        // Kirimkan respons JSON
-        return response()->json([
-            'success' => true,
-            'message' => 'Suara berhasil dikurangkan!',
-            'kandidat' => $kandidat
-        ]);
-    }
+
 }
