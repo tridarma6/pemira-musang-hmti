@@ -19,17 +19,17 @@ class KandidatSeeder extends Seeder
             'image' => '/assets/images/calon/kandidat-1.png',
         ]);
         Kandidat::create([
-            'name' => 'Dede Baskara',
+            'name' => 'Davin',
             'suara' => 0,
             'image' => '/assets/images/calon/kandidat-1.png',
         ]);
         Kandidat::create([
-            'name' => 'Roby Dwimarta',
+            'name' => 'Setiawan Rama Putra',
             'suara' => 0,
             'image' => '/assets/images/calon/kandidat-1.png',
         ]);
         Kandidat::create([
-            'name' => 'Setiawan Rama',
+            'name' => 'Arya',
             'suara' => 0,
             'image' => '/assets/images/calon/kandidat-1.png',
         ]);
