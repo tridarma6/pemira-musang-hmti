@@ -14,24 +14,24 @@ class KandidatSeeder extends Seeder
     public function run(): void
     {
         Kandidat::create([
-            'name' => 'Indra Udayana',
+            'name' => 'I Made Indra Udayana Wiguna',
             'suara' => 0,
             'image' => '/assets/images/calon/kandidat-1.png',
         ]);
         Kandidat::create([
-            'name' => 'Dede Baskara',
+            'name' => 'I Gusti Bagus Davin Dharma Ditya',
             'suara' => 0,
-            'image' => '/assets/images/calon/kandidat-1.png',
+            'image' => '/assets/images/calon/kandidat-2.png',
         ]);
         Kandidat::create([
-            'name' => 'Roby Dwimarta',
+            'name' => 'I Made Arya Adi Permana',
             'suara' => 0,
-            'image' => '/assets/images/calon/kandidat-1.png',
+            'image' => '/assets/images/calon/kandidat-3.png',
         ]);
         Kandidat::create([
-            'name' => 'Setiawan Rama',
+            'name' => 'Setiawan Rama Putra',
             'suara' => 0,
-            'image' => '/assets/images/calon/kandidat-1.png',
+            'image' => '/assets/images/calon/kandidat-4.png',
         ]);
     }
 }
