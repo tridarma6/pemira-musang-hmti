@@ -20,39 +20,38 @@
 </head>
 <body>
     <div class="text-center flex flex-row justify-between absolute w-full z-0">
-        <img src="\assets\images\decorations\atas-kiri.png" alt="" class="z-0">
+        <img src="\assets\images\decorations\atas-kiri.png" alt="" class="z-0" width="400" height="310">
         <div class="flex flex-col pt-6">
-            <h1 class="poppins-bold text-[58px] bg-clip-text text-transparent bg-gradient-to-b from-[#462814] via-[#956037] to-[#462814] leading-tight">PENGHITUNGAN SUARA</h1>
-            <h1 class="poppins-bold text-[48px] bg-clip-text text-transparent bg-gradient-to-b from-[#462814] via-[#956037] to-[#462814] leading-tight">PEMILU RAYA HMTI 2024</h1>
+            <h1 class="poppins-bold text-[100px] bg-clip-text text-transparent bg-gradient-to-b from-[#462814] via-[#956037] to-[#462814] leading-tight">PENGHITUNGAN SUARA</h1>
+            <h1 class="poppins-bold text-[88px] bg-clip-text text-transparent bg-gradient-to-b from-[#462814] via-[#956037] to-[#462814] leading-none">PEMILU RAYA HMTI 2024</h1>
         </div>
-        <img src="\assets\images\decorations\atas-kanan.png" alt="" class="z-0">
+        <img src="\assets\images\decorations\atas-kanan.png" alt="" class="z-0" width="400" height="310">
     </div>    
-    <div class="flex flex-row justify-between mx-[200px] pt-44 z-10">
+    <div class="flex flex-row justify-center gap-72 mx-[200px] pt-64 z-10">
         <div class="grid grid-rows-2 grid-flow-col">
         @foreach ($kandidats as $kandidat)
             <div id="kandidat-{{ $kandidat->id }}" class="poppins-bold flex flex-col text-center items-center text-3xl bg-clip-text text-transparent bg-gradient-to-b from-[#462814] via-[#956037] to-[#462814] px-12 pt-6">
-                <img src="{{ $kandidat->image }}" alt="" width="196" height="206">
-                <div class="flex flex-row gap-6">
+                <img src="{{ $kandidat->image }}" alt="" width="300" height="305">
+                <div class="flex flex-row gap-6 py-4">
                     <button class="kurang-suara border hidden border-[#462814] w-10 rounded-full" data-id="{{ $kandidat->id }}">-</button>
-                    <p><span class="suara">{{ $kandidat->suara }}</span> Suara</p>
+                    <p class="text-[48px]"><span class="suara">{{ $kandidat->suara }}</span> Suara</p>
                     <button class="tambah-suara border hidden border-[#462814] w-10 rounded-full" data-id="{{ $kandidat->id }}">+</button>
-                    
                 </div>
             </div>
         @endforeach
         </div>
         <div class="flex flex-col pt-10 items-center gap-8">
             <button id="start-button" class="mt-4 px-4 py-2 text-white rounded">
-                <div id="video-stop" class="border-[4px] border-[#462814] rounded-[20px] w-[640px] h-[480px] flex justify-center text-center text-black py-52">
+                <div id="video-stop" class="border-[4px] border-[#462814] rounded-[20px] w-[800px] h-[600px] flex justify-center text-center text-black py-64 text-[28px] font-bold">
                     Tap untuk menghidupkan kamera
                 </div>
-                <video id="video" class="border-[4px] border-[#462814] rounded-[20px] w-[640px] h-[480px]" autoplay style="display: none;"></video>
+                <video id="video" class="border-[4px] border-[#462814] rounded-[20px] w-[800px] h-[600px]" autoplay style="display: none;"></video>
             </button>
             <a href="/result" class="poppins-bold bg-[#956037] rounded-[22px] w-1/3 h-[65px] text-[24px] text-white border border-[#462814] text-center items-center pt-3 z-20">Lihat Hasil</a>
         </div>
     </div>
-    <footer>
-        <img src="\assets\images\decorations\footer.png" alt="" class="w-full">
+    <footer class="absolute bottom-0 w-full z-0">
+        <img src="\assets\images\decorations\footer.png" alt="" class="w-full" width="1000">
     </footer>
 
     <script>
